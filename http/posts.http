@@ -1,3 +1,12 @@
+GET http://localhost:8080/posts/allsafe
+
+###
+GET http://localhost:8080/posts/random
+
+###
+GET http://localhost:8080/posts/map
+
+###
 GET http://localhost:8080/posts/all
 
 
