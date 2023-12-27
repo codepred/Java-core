@@ -9,4 +9,8 @@ GET http://localhost:8080/posts/map
 ###
 GET http://localhost:8080/posts/all
 
+###
+GET http://localhost:8080/posts/author
+
+
 

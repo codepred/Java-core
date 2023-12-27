@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class PostController {
 
-
     private final PostRepository postRepository;
     private final CommentRepository commentRepository;
 
@@ -35,6 +34,11 @@ public class PostController {
         return ResponseEntity.status(200).body(mapToPostDtos(postRepository.findAllN1NotSafePageable(PageRequest.of(0,10))));
     }
 
+    @GetMapping("/posts/author")
+    public ResponseEntity<Object> getAuthorPosts(){
+        return ResponseEntity.status(200).body(postRepository.findAllByAuthorXX("Commenter1"));
+    }
+
     @GetMapping("/posts/allsafe")
     public ResponseEntity<Object> getPostsN1Safe(){
         List<Integer> postIds = postRepository.findAllN1NotSafePageableIds(PageRequest.of(0,10));
@@ -48,7 +52,7 @@ public class PostController {
 
             // Adding comments to each post
             for (int j = 0; j < 3; j++) {
-                Comment comment = new Comment("Commenter " + j, "Comment text for post " + i);
+                Comment comment = new Comment("Commenter" + j, "Comment text for post " + i);
                 commentRepository.save(comment);
                 post.addComment(comment);
             }

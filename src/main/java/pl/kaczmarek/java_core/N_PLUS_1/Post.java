@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table
+@Table(name = "Post")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
